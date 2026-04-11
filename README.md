@@ -1,5 +1,4 @@
 # DoaFácil - Rastreador de Doações de Sangue 🩸
-Aplicação para gerenciar a falta de controle sobre os prazos de doação de sangue.
 
 ## Versão: 1.0.0
 
@@ -9,6 +8,13 @@ Muitas pessoas desejam doar sangue regularmente para ajudar a salvar vidas, mas 
 ## A Solução
 O DoaFácil é uma aplicação de Linha de Comando (CLI) simples que cadastra a última data de doação do usuário, calcula automaticamente a data da próxima doação e armazena esse registro localmente usando JSON.
 
+## Tecnologias e Qualidade
+* **Linguagem:** Python 3
+* **Armazenamento:** JSON (em memória local)
+* **Testes:** `pytest`
+* **Linting:** `flake8`
+* **CI/CD:** GitHub Actions configurado no repositório.
+* 
 ## 🚀 Como testar este projeto localmente
 
 1. Abra o terminal e clone o repositório:
@@ -25,10 +31,3 @@ O DoaFácil é uma aplicação de Linha de Comando (CLI) simples que cadastra a 
    `python src/app.py`
 6. Para rodar os testes automatizados que comprovam a lógica:
    `pytest tests/`
-
-## Tecnologias e Qualidade
-* **Linguagem:** Python 3
-* **Armazenamento:** JSON (em memória local)
-* **Testes:** `pytest`
-* **Linting:** `flake8`
-* **CI/CD:** GitHub Actions configurado no repositório.
