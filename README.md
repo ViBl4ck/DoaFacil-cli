@@ -14,7 +14,7 @@ O DoaFácil é uma aplicação de Linha de Comando (CLI) simples que cadastra a 
 * **Testes:** `pytest`
 * **Linting:** `flake8`
 * **CI/CD:** GitHub Actions configurado no repositório.
-* 
+  
 ## 🚀 Como testar este projeto localmente
 
 1. Abra o terminal e clone o repositório:
