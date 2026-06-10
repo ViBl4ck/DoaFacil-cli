@@ -1,0 +1,20 @@
+# Ambiente virtual
+venv/
+.venv/
+env/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+
+# Cache de ferramentas
+.pytest_cache/
+
+# Dados gerados pela aplicação em tempo de execução
+doacoes.json
+
+# Configs de editor e sistema operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
