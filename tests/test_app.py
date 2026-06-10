@@ -11,4 +11,3 @@ def test_calcular_proxima_doacao_mulher():
     # Mulher deve esperar 90 dias
     resultado = calcular_proxima_doacao("01/01/2026", "F")
     assert resultado == "01/04/2026"
-
