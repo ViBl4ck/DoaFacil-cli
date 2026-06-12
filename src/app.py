@@ -1,6 +1,9 @@
 import json
 import os
+import re
 from datetime import datetime, timedelta
+
+import requests
 
 DATA_FILE = "doacoes.json"
 
@@ -72,19 +75,53 @@ def fazer_triagem():
     return True, msg_aprov
 
 
+def consultar_cep(cep):
+    """Consulta endereço por CEP usando a API pública ViaCEP."""
+    cep_numerico = re.sub(r"\D", "", cep)
+    if len(cep_numerico) != 8:
+        return {
+            "sucesso": False,
+            "erro": "CEP inválido. Informe 8 dígitos.",
+        }
+
+    url = f"https://viacep.com.br/ws/{cep_numerico}/json/"
+    try:
+        resposta = requests.get(url, timeout=5)
+        resposta.raise_for_status()
+        dados = resposta.json()
+    except requests.RequestException:
+        return {
+            "sucesso": False,
+            "erro": "Erro de conexão. Tente novamente mais tarde.",
+        }
+
+    if dados.get("erro"):
+        return {"sucesso": False, "erro": "CEP não encontrado."}
+
+    return {
+        "sucesso": True,
+        "cep": dados.get("cep", ""),
+        "logradouro": dados.get("logradouro", ""),
+        "bairro": dados.get("bairro", ""),
+        "cidade": dados.get("localidade", ""),
+        "uf": dados.get("uf", ""),
+    }
+
+
 def main():
     dados = carregar_dados()
 
     while True:
         print("\n" + "-" * 50)
-        print("🩸 Bem-vindo ao DoaFácil V2.0 - Triagem 🩸")
+        print("🩸 Bem-vindo ao DoaFácil v1.1.0 🩸")
         print("-" * 50)
         print("1. Registrar nova doação")
         print("2. Verificar próxima data disponível")
         print("3. Fazer pré-triagem (Questionário)")
-        print("4. Sair")
+        print("4. Consultar endereço por CEP")
+        print("5. Sair")
 
-        opcao = input("\nEscolha uma opção (1/2/3/4): ")
+        opcao = input("\nEscolha uma opção (1/2/3/4/5): ")
 
         if opcao == '1':
             nome = input("Qual o seu nome? ").strip()
@@ -122,6 +159,19 @@ def main():
             print(mensagem)
 
         elif opcao == '4':
+            cep = input("Digite o CEP (somente números): ").strip()
+            resultado = consultar_cep(cep)
+            if resultado["sucesso"]:
+                print("\n📍 Endereço encontrado:")
+                print(f"  CEP: {resultado['cep']}")
+                print(f"  Logradouro: {resultado['logradouro']}")
+                print(f"  Bairro: {resultado['bairro']}")
+                print(f"  Cidade: {resultado['cidade']}")
+                print(f"  UF: {resultado['uf']}")
+            else:
+                print(f"\n❌ {resultado['erro']}")
+
+        elif opcao == '5':
             print("\n👋 Obrigado por salvar vidas! Até logo.\n")
             break
 
@@ -131,4 +181,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
