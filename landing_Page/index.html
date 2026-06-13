@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DoaFácil — ferramenta open source para doadores de sangue e informações sobre doação no Hemocentro de Brasília." />
+  <title>DoaFácil — Doe sangue. Salve vidas.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+
+    <a href="#inicio" class="logo" aria-label="DoaFácil — Página inicial">
+      <svg class="logo-drop" viewBox="0 0 20 26" aria-hidden="true" width="20" height="26">
+        <path d="M10 1C10 1 18 10 18 16C18 21 14.4 24 10 24C5.6 24 2 21 2 16C2 10 10 1 10 1Z" fill="currentColor"/>
+      </svg>
+      DoaFácil
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu de navegação">
+      <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#quem-pode-doar">Quem pode doar</a></li>
+        <li><a href="#antes-de-doar">Antes de doar</a></li>
+        <li><a href="#impedimentos">Impedimentos</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#doacao-em-grupo">Doação em grupo</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="https://agenda.df.gov.br" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Agendar doação</a>
+      <a href="https://github.com/ViBl4ck/DoaFacil-cli" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="DoaFácil no GitHub">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</header>
+
+<main>
+
+<!-- ====== 2. HERO ====== -->
+<section id="inicio" class="hero">
+  <div class="container hero-inner">
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Hemocentro de Brasília</p>
+      <h1>Uma doação.<br/>Muitas vidas.</h1>
+      <p class="hero-sub">Doe sangue com agendamento, conforto e informação clara. Cada doação pode ajudar até quatro pessoas.</p>
+      <div class="hero-ctas">
+        <a href="#quem-pode-doar" class="btn btn-primary btn-large">Ver se posso doar</a>
+        <a href="#doafacil" class="btn btn-outline-light btn-large">Conhecer o DoaFácil</a>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="hero-svg" viewBox="0 0 280 340" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="dropGradient" x1="30%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E74C3C"/>
+            <stop offset="100%" style="stop-color:#5C0A0A"/>
+          </linearGradient>
+        </defs>
+        <circle cx="240" cy="55" r="22" fill="#E74C3C" opacity="0.18"/>
+        <circle cx="30" cy="265" r="38" fill="#E74C3C" opacity="0.12"/>
+        <circle cx="258" cy="292" r="14" fill="#E74C3C" opacity="0.22"/>
+        <path class="drop-shape"
+          d="M140 18 C140 18 218 128 218 186 C218 236 183 268 140 268 C97 268 62 236 62 186 C62 128 140 18 140 18Z"
+          fill="url(#dropGradient)"/>
+        <ellipse cx="110" cy="95" rx="18" ry="32" fill="white" opacity="0.12" transform="rotate(-15 110 95)"/>
+        <polyline class="pulse-line"
+          points="68,186 96,186 110,152 126,220 140,168 156,186 174,186 200,186"
+          fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="3.5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <div class="hero-cards-bar">
+    <div class="container">
+      <div class="quick-cards">
+        <div class="quick-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Segunda a sábado</span>
+        </div>
+        <div class="quick-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>7h15 às 18h</span>
+        </div>
+        <div class="quick-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Asa Norte, Brasília</span>
+        </div>
+        <div class="quick-card">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Atendimento: 60–90 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 3. POR QUE DOAR ====== -->
+<section id="por-que-doar" class="section section-red">
+  <div class="container text-center">
+    <p class="section-tag light">Por que doar?</p>
+    <h2 class="animate-on-scroll">O sangue não tem substituto.</h2>
+    <p class="section-lead light animate-on-scroll">O sangue doado ajuda pacientes em cirurgias, tratamentos oncológicos, emergências e transfusões. Sem doadores voluntários, não há estoque.</p>
+    <blockquote class="impact-quote animate-on-scroll">
+      "Você não precisa conhecer quem vai receber.<br/>Só precisa decidir ajudar."
+    </blockquote>
+    <a href="#quem-pode-doar" class="btn btn-outline-light btn-large animate-on-scroll">Ver se posso doar</a>
+  </div>
+</section>
+
+
+<!-- ====== 4. CONHEÇA O DOAFÁCIL ====== -->
+<section id="doafacil" class="section section-light">
+  <div class="container">
+    <p class="section-tag">Ferramenta gratuita e open source</p>
+    <h2 class="animate-on-scroll">Conheça o DoaFácil</h2>
+    <p class="section-lead animate-on-scroll">Uma aplicação de linha de comando (CLI) em Python para ajudar doadores a se organizarem. Código aberto, gratuito, versão 1.1.0.</p>
+
+    <div class="cards-grid cards-4 animate-on-scroll">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Registrar doação</h3>
+        <p>Guarde a data da sua última doação com nome e sexo biológico.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>Próxima data apta</h3>
+        <p>Calcula automaticamente quando você poderá doar de novo (60 ou 90 dias).</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Pré-triagem</h3>
+        <p>Questionário rápido com as principais regras dos hemocentros.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Consultar CEP</h3>
+        <p>Descubra cidade, bairro e logradouro pelo CEP via API pública ViaCEP.</p>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:2.5rem">
+      <a href="https://github.com/ViBl4ck/DoaFacil-cli" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        Ver no GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 5. QUEM PODE DOAR ====== -->
+<section id="quem-pode-doar" class="section">
+  <div class="container">
+    <p class="section-tag">Critérios gerais</p>
+    <h2 class="animate-on-scroll">Quem pode doar?</h2>
+    <p class="section-lead animate-on-scroll">Verifique os critérios básicos. A avaliação final é feita por profissional de saúde na triagem presencial.</p>
+
+    <div class="cards-grid cards-3 animate-on-scroll">
+      <div class="criteria-card">
+        <div class="criteria-badge badge-green">✓</div>
+        <h3>Idade</h3>
+        <p>16 a 69 anos. Menores de 18 precisam de autorização do responsável. Acima de 61, é necessário ter doado antes dos 61.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-badge badge-green">✓</div>
+        <h3>Peso e IMC</h3>
+        <p>Peso acima de 51 kg e IMC mínimo de 18,5.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-badge badge-green">✓</div>
+        <h3>Saúde geral</h3>
+        <p>Boa saúde geral, sem febre nem infecção ativa no dia da doação.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-badge badge-green">✓</div>
+        <h3>Documento</h3>
+        <p>Documento oficial com foto original e válido.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-badge badge-green">✓</div>
+        <h3>Sono</h3>
+        <p>Ter dormido ao menos 6 horas na noite anterior à doação.</p>
+      </div>
+      <div class="criteria-card">
+        <div class="criteria-badge badge-yellow">!</div>
+        <h3>Restrições no dia</h3>
+        <p>Não consumir álcool nas 12 horas anteriores. Não fumar nas 2 horas anteriores.</p>
+      </div>
+    </div>
+
+    <div class="docs-box animate-on-scroll">
+      <h3>Documentos aceitos</h3>
+      <ul class="docs-list">
+        <li>RG</li>
+        <li>CNH</li>
+        <li>Carteira de Trabalho (CTPS)</li>
+        <li>Passaporte</li>
+        <li>Certificado de reservista</li>
+        <li>Carteira profissional de classe</li>
+        <li>Carteira estudantil</li>
+        <li>Certidão de nascimento</li>
+        <li>Versões digitais oficiais</li>
+      </ul>
+    </div>
+
+    <div class="text-center" style="margin-top:2rem">
+      <a href="#impedimentos" class="btn btn-outline">Verificar impedimentos</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 6. ANTES DE DOAR ====== -->
+<section id="antes-de-doar" class="section section-light">
+  <div class="container">
+    <p class="section-tag">Prepare-se</p>
+    <h2 class="animate-on-scroll">Antes de doar</h2>
+    <p class="section-lead animate-on-scroll">Pequenas atitudes antes da doação fazem toda a diferença no seu bem-estar durante o processo.</p>
+
+    <ol class="checklist animate-on-scroll" aria-label="Lista de preparativos antes de doar">
+      <li>
+        <span class="check-num" aria-hidden="true">1</span>
+        <div><strong>Hidrate-se bem</strong><p>Beba bastante água antes de ir ao Hemocentro.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">2</span>
+        <div><strong>Não vá em jejum</strong><p>Evite alimentos gordurosos nas 3 horas antes. Prefira uma refeição leve.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">3</span>
+        <div><strong>Durma bem</strong><p>Descanse pelo menos 6 horas na noite anterior.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">4</span>
+        <div><strong>Vista-se adequadamente</strong><p>Use roupa confortável com manga que suba facilmente até o cotovelo.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">5</span>
+        <div><strong>Leve documento original</strong><p>Com foto, válido. Consulte os documentos aceitos na seção acima.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">6</span>
+        <div><strong>Não fume antes</strong><p>Evite fumar nas 2 horas anteriores à doação.</p></div>
+      </li>
+      <li>
+        <span class="check-num" aria-hidden="true">7</span>
+        <div><strong>Se almoçar antes</strong><p>Aguarde 2 horas e prefira refeição leve.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+
+<!-- ====== 7. DURANTE A VISITA ====== -->
+<section id="durante" class="section section-dark">
+  <div class="container">
+    <p class="section-tag light">Sua visita</p>
+    <h2 class="animate-on-scroll">Durante a visita</h2>
+
+    <div class="duration-badge animate-on-scroll">
+      <span class="duration-number">60–90</span>
+      <span class="duration-label">minutos em média</span>
+    </div>
+
+    <ol class="journey-steps animate-on-scroll" aria-label="Etapas da visita ao Hemocentro">
+      <li>
+        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-content"><h3>Registro</h3><p>Apresentação do documento e cadastro.</p></div>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-content"><h3>Pré-triagem</h3><p>Questionário sobre saúde e histórico recente.</p></div>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-content"><h3>Triagem clínica</h3><p>Avaliação com profissional de saúde.</p></div>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">4</div>
+        <div class="step-content"><h3>Coleta</h3><p>Procedimento rápido e supervisionado por equipe especializada.</p></div>
+      </li>
+      <li>
+        <div class="step-num" aria-hidden="true">5</div>
+        <div class="step-content"><h3>Lanche e observação</h3><p>Descanse 15 minutos e aproveite o lanche oferecido.</p></div>
+      </li>
+    </ol>
+
+    <p class="journey-tip animate-on-scroll">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Segunda, terça e quarta costumam ter menor espera.
+    </p>
+  </div>
+</section>
+
+
+<!-- ====== 8. CUIDADOS APÓS ====== -->
+<section id="apos-doacao" class="section">
+  <div class="container">
+    <p class="section-tag">Pós-doação</p>
+    <h2 class="animate-on-scroll">Cuidados após a doação</h2>
+    <p class="section-lead animate-on-scroll">Seguindo estes cuidados simples você se recupera rápido e pode continuar sua rotina.</p>
+
+    <div class="cards-grid cards-3 animate-on-scroll">
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">⏱️</div>
+        <p>Aguarde <strong>15 minutos</strong> antes de sair do Hemocentro.</p>
+      </div>
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">💧</div>
+        <p>Beba bastante líquido nas <strong>24 horas</strong> seguintes.</p>
+      </div>
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">🚫</div>
+        <p>Evite <strong>álcool</strong> por 24 horas após a doação.</p>
+      </div>
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">🏃</div>
+        <p>Evite <strong>atividade física intensa</strong> nas 12 horas seguintes.</p>
+      </div>
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">🚌</div>
+        <p>Não dirija <strong>ônibus ou caminhão</strong> após a doação.</p>
+      </div>
+      <div class="care-card">
+        <div class="care-emoji" aria-hidden="true">🏍️</div>
+        <p>Na <strong>primeira doação</strong>, não pilote moto após a coleta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 9. INTERVALOS + CALCULADORA ====== -->
+<section id="intervalos" class="section section-light">
+  <div class="container">
+    <p class="section-tag">Frequência</p>
+    <h2 class="animate-on-scroll">Intervalos entre doações</h2>
+
+    <div class="interval-panel animate-on-scroll">
+      <div class="interval-card interval-men">
+        <div class="interval-symbol" aria-hidden="true">♂</div>
+        <h3>Homens</h3>
+        <p class="interval-days">60 dias</p>
+        <p class="interval-sub">entre doações</p>
+        <p class="interval-max">até 4 vezes ao ano</p>
+      </div>
+      <div class="interval-divider" aria-hidden="true">
+        <svg viewBox="0 0 20 26" width="20" height="26"><path d="M10 1C10 1 18 10 18 16C18 21 14.4 24 10 24C5.6 24 2 21 2 16C2 10 10 1 10 1Z" fill="#C0392B" opacity="0.3"/></svg>
+      </div>
+      <div class="interval-card interval-women">
+        <div class="interval-symbol" aria-hidden="true">♀</div>
+        <h3>Mulheres</h3>
+        <p class="interval-days">90 dias</p>
+        <p class="interval-sub">entre doações</p>
+        <p class="interval-max">até 3 vezes ao ano</p>
+      </div>
+    </div>
+
+    <p class="interval-note animate-on-scroll">Os prazos consideram o sexo designado no nascimento, por segurança do doador e do receptor.</p>
+
+    <!-- Mini-calculadora -->
+    <div class="calculator animate-on-scroll" aria-label="Calculadora de próxima doação">
+      <h3>Calcule sua próxima doação</h3>
+      <p>Informe o sexo biológico e a data da sua última doação.</p>
+      <div class="calc-form">
+        <div class="calc-field">
+          <label for="calc-sexo">Sexo biológico</label>
+          <select id="calc-sexo">
+            <option value="M">Masculino (60 dias)</option>
+            <option value="F">Feminino (90 dias)</option>
+          </select>
+        </div>
+        <div class="calc-field">
+          <label for="calc-data">Última doação</label>
+          <input type="date" id="calc-data" />
+        </div>
+        <button class="btn btn-primary" id="calc-btn" type="button">Calcular</button>
+      </div>
+      <div id="calc-resultado" class="calc-resultado" role="status" aria-live="polite" hidden></div>
+      <div id="calc-erro" class="calc-erro" role="alert" aria-live="assertive" hidden></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 10. IMPEDIMENTOS ====== -->
+<section id="impedimentos" class="section">
+  <div class="container">
+    <p class="section-tag">Saiba antes de ir</p>
+    <h2 class="animate-on-scroll">Impedimentos</h2>
+    <p class="section-lead animate-on-scroll">Toda doação passa por triagem e exames sorológicos. Alguns fatores podem gerar impedimento temporário ou definitivo — a análise final é sempre feita por profissional de saúde.</p>
+
+    <div class="cards-grid cards-2 animate-on-scroll">
+      <div class="info-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Janela imunológica
+        </h3>
+        <p>Existe um período após uma infecção em que os exames ainda não detectam o vírus no sangue. Por segurança, doadores com certos comportamentos de risco recentes aguardam um intervalo antes de poder doar.</p>
+      </div>
+      <div class="info-card">
+        <h3>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          Impedimentos comuns
+        </h3>
+        <ul class="simple-list">
+          <li>Doenças e infecções recentes</li>
+          <li>Medicamentos específicos</li>
+          <li>Cirurgias recentes</li>
+          <li>Vacinas (varia conforme o imunizante)</li>
+          <li>Viagens a regiões de risco</li>
+          <li>Gravidez ou amamentação</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center btn-row animate-on-scroll">
+      <a href="https://agenda.df.gov.br" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Verificar minha aptidão</a>
+      <a href="https://fhb.df.gov.br" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Lista oficial de impedimentos</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 11. DOAÇÃO EM GRUPO ====== -->
+<section id="doacao-em-grupo" class="section section-red">
+  <div class="container">
+    <p class="section-tag light">Campanhas coletivas</p>
+    <h2 class="animate-on-scroll">Doação em grupo</h2>
+    <p class="section-lead light animate-on-scroll">Empresas, faculdades, igrejas e comunidades podem organizar campanhas coletivas com apoio da FHB.</p>
+
+    <div class="group-benefits animate-on-scroll">
+      <div class="benefit-item">
+        <div class="benefit-emoji" aria-hidden="true">🚌</div>
+        <p>Transporte gratuito para grupos com no mínimo <strong>10 doadores</strong></p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-emoji" aria-hidden="true">📋</div>
+        <p>Material informativo e apoio na organização da campanha</p>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-emoji" aria-hidden="true">🤝</div>
+        <p>Atendimento dedicado da Gerência de Captação da FHB</p>
+      </div>
+    </div>
+
+    <div class="contact-box animate-on-scroll">
+      <h3>Gerência de Captação — FHB</h3>
+      <ul class="contact-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.37 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16l.19.92z"/></svg>
+          (61) 3327-4413 / 3327-4447 <em>[confirmar na fonte oficial]</em>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          WhatsApp: (61) 9 9136-2495 <em>[confirmar na fonte oficial]</em>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Segunda a sábado, 7h15 às 18h
+        </li>
+      </ul>
+    </div>
+
+    <div class="text-center" style="margin-top:2rem">
+      <a href="https://fhb.df.gov.br" class="btn btn-outline-light btn-large" target="_blank" rel="noopener noreferrer">Organizar doação em grupo</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 12. LOCALIZAÇÃO ====== -->
+<section id="localizacao" class="section section-light">
+  <div class="container">
+    <p class="section-tag">Como chegar</p>
+    <h2 class="animate-on-scroll">Localização</h2>
+
+    <div class="location-grid animate-on-scroll">
+      <div class="location-info">
+        <div class="location-item">
+          <h3>Fundação Hemocentro de Brasília</h3>
+          <address>
+            SMHN Quadra 3, Conjunto A, Bloco 3<br/>
+            Asa Norte — Brasília, DF<br/>
+            CEP: 70.710-908
+          </address>
+        </div>
+        <div class="location-item">
+          <h3>Horário de funcionamento</h3>
+          <p>Segunda a sábado, das 7h15 às 18h</p>
+        </div>
+        <div class="location-item">
+          <h3>Agendamento</h3>
+          <p>
+            <a href="https://agenda.df.gov.br" target="_blank" rel="noopener noreferrer">agenda.df.gov.br</a><br/>
+            Disque 160 (opção 2)<br/>
+            0800 644 0160 (fora do DF)
+          </p>
+        </div>
+        <a href="https://www.google.com/maps/search/Funda%C3%A7%C3%A3o+Hemocentro+de+Bras%C3%ADlia,+Bras%C3%ADlia+DF" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top:1rem;display:inline-flex;align-items:center;gap:.5rem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Abrir no Google Maps
+        </a>
+      </div>
+
+      <div class="location-map">
+        <iframe
+          title="Localização da Fundação Hemocentro de Brasília"
+          src="https://maps.google.com/maps?q=Funda%C3%A7%C3%A3o+Hemocentro+de+Bras%C3%ADlia,+SMHN+Quadra+3,+Conjunto+A,+Bloco+3,+Asa+Norte,+Bras%C3%ADlia,+DF&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 13. INCLUSÃO E RESPEITO ====== -->
+<section id="inclusao" class="section section-dark">
+  <div class="container text-center">
+    <p class="section-tag light">Acolhimento</p>
+    <h2 class="animate-on-scroll">Inclusão e respeito</h2>
+    <p class="section-lead light animate-on-scroll">O Hemocentro acolhe doadores de todas as orientações sexuais e identidades de gênero, com dignidade em todas as etapas.</p>
+
+    <div class="cards-grid cards-3 animate-on-scroll">
+      <div class="inclusion-card">
+        <div class="inc-emoji" aria-hidden="true">🏳️‍🌈</div>
+        <h3>Diversidade</h3>
+        <p>Atendimento acolhedor para todas as orientações sexuais e identidades de gênero.</p>
+      </div>
+      <div class="inclusion-card">
+        <div class="inc-emoji" aria-hidden="true">📋</div>
+        <h3>Nome social</h3>
+        <p>O nome social está disponível em todas as etapas do processo de doação.</p>
+      </div>
+      <div class="inclusion-card">
+        <div class="inc-emoji" aria-hidden="true">🩺</div>
+        <h3>Triagem individual</h3>
+        <p>A avaliação é individual, com critérios do Ministério da Saúde e da Anvisa, realizada por profissional de saúde.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ====== 14. FAQ ====== -->
+<section id="faq" class="section">
+  <div class="container">
+    <p class="section-tag">Dúvidas frequentes</p>
+    <h2 class="animate-on-scroll">FAQ</h2>
+
+    <div class="faq-list animate-on-scroll">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Preciso agendar?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>O agendamento é recomendado para garantir atendimento ágil. Acesse <a href="https://agenda.df.gov.br" target="_blank" rel="noopener noreferrer">agenda.df.gov.br</a> ou ligue para o Disque Saúde 160 (opção 2).</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Posso doar em jejum?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Não. Evite o jejum antes de doar. Prefira refeição leve e evite alimentos gordurosos nas 3 horas anteriores. Hidrate-se bem.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Quanto tempo demora?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>A visita dura em média 60 a 90 minutos, incluindo registro, triagem, coleta e período de repouso. O tempo pode variar conforme o movimento — segunda, terça e quarta tendem a ter menor espera.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Quais documentos são aceitos?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>RG, CNH, Carteira de Trabalho (CTPS), passaporte, certificado de reservista, carteira profissional de classe, carteira estudantil, certidão de nascimento e versões digitais oficiais.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Posso doar se fiz tatuagem ou piercing?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Tatuagem ou piercing realizados nos últimos 6 a 12 meses podem gerar impedimento temporário. Consulte a lista oficial ou faça a triagem no Hemocentro para avaliação individual.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          Posso doar se tomei vacina recentemente?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>Depende do imunizante. Algumas vacinas requerem um período de espera. Consulte a lista oficial de impedimentos em <a href="https://fhb.df.gov.br" target="_blank" rel="noopener noreferrer">fhb.df.gov.br</a> ou faça a triagem no Hemocentro.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          O que acontece com o sangue doado?
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <div class="faq-answer">
+          <p>O sangue coletado passa por exames sorológicos rigorosos antes de ser utilizado. Cada bolsa pode ser separada em até quatro componentes, ajudando pacientes diferentes. Após a coleta, descanse por 15 minutos, tome o lanche e está liberado.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ====== FOOTER ====== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#inicio" class="logo logo-light" aria-label="DoaFácil — Início">
+        <svg class="logo-drop" viewBox="0 0 20 26" aria-hidden="true" width="18" height="23">
+          <path d="M10 1C10 1 18 10 18 16C18 21 14.4 24 10 24C5.6 24 2 21 2 16C2 10 10 1 10 1Z" fill="currentColor"/>
+        </svg>
+        DoaFácil
+      </a>
+      <p>Ferramenta open source para doadores de sangue. v1.1.0</p>
+      <a href="https://github.com/ViBl4ck/DoaFacil-cli" class="footer-github" target="_blank" rel="noopener noreferrer" aria-label="DoaFácil no GitHub">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Links úteis</h4>
+      <ul>
+        <li><a href="https://agenda.df.gov.br" target="_blank" rel="noopener noreferrer">Agendar doação</a></li>
+        <li><a href="#quem-pode-doar">Quem pode doar</a></li>
+        <li><a href="#impedimentos">Impedimentos</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="https://github.com/ViBl4ck/DoaFacil-cli" target="_blank" rel="noopener noreferrer">GitHub do projeto</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Hemocentro de Brasília</h4>
+      <address>
+        SMHN Quadra 3, Conjunto A, Bloco 3<br/>
+        Asa Norte — Brasília, DF<br/>
+        CEP: 70.710-908<br/>
+        Seg. a sáb., 7h15 às 18h
+      </address>
+      <p style="margin-top:.75rem">
+        <a href="https://fhb.df.gov.br" target="_blank" rel="noopener noreferrer">fhb.df.gov.br</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="footer-disclaimer">
+    <div class="container">
+      <p>Projeto acadêmico DoaFácil. Esta não é a página oficial da Fundação Hemocentro de Brasília. Informações baseadas em <a href="https://fhb.df.gov.br" target="_blank" rel="noopener noreferrer">fhb.df.gov.br</a> — confirme sempre na fonte oficial.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile floating CTA (visible only on small screens) -->
+<a href="https://agenda.df.gov.br" class="mobile-cta-fixed" target="_blank" rel="noopener noreferrer" aria-label="Agendar doação no Hemocentro de Brasília">
+  Agendar doação
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
