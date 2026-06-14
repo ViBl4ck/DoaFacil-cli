@@ -75,14 +75,14 @@ p { line-height: 1.7; }
   color: var(--red);
   margin-bottom: .9rem;
 }
-.section-tag.light { color: rgba(255,255,255,0.65); }
+.section-tag.light { color: rgba(255,255,255,0.9); }
 .section-lead {
   font-size: 1.1rem;
   color: var(--gray-700);
   max-width: 680px;
   margin: 0 auto 2.5rem;
 }
-.section-lead.light { color: rgba(255,255,255,0.85); }
+.section-lead.light { color: rgba(255,255,255,0.92); }
 
 /* ===== BUTTONS ===== */
 .btn {
@@ -192,6 +192,7 @@ p { line-height: 1.7; }
   transition: color var(--transition), background var(--transition);
 }
 .main-nav a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.main-nav a:focus-visible { outline: 2px solid var(--red-light); outline-offset: 2px; border-radius: 8px; color: var(--white); }
 
 .header-actions {
   display: none;
@@ -218,6 +219,7 @@ p { line-height: 1.7; }
 .nav-toggle .icon-close { display: none; }
 .nav-toggle[aria-expanded="true"] .icon-menu { display: none; }
 .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+.nav-toggle:focus-visible { outline: 2px solid var(--red-light); outline-offset: 2px; border-radius: 4px; }
 
 /* ===== HERO ===== */
 .hero {
@@ -272,7 +274,7 @@ p { line-height: 1.7; }
 
 /* Blood drop animations */
 .drop-shape {
-  animation: drop-float 4s ease-in-out infinite;
+  animation: drop-float 6s ease-in-out infinite;
   transform-origin: center;
 }
 .pulse-line {
@@ -282,8 +284,8 @@ p { line-height: 1.7; }
 }
 
 @keyframes drop-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-6px) scale(1.015); }
 }
 @keyframes pulse-draw {
   0%   { stroke-dashoffset: 290; opacity: 0; }
@@ -611,6 +613,11 @@ p { line-height: 1.7; }
   outline: none;
   border-color: var(--red);
 }
+.calc-field select:focus-visible,
+.calc-field input:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 1px;
+}
 .calc-resultado {
   margin-top: 1rem;
   padding: 1rem 1.25rem;
@@ -690,7 +697,7 @@ p { line-height: 1.7; }
   font-size: .9rem;
   color: rgba(255,255,255,0.85);
 }
-.contact-list em { color: rgba(255,255,255,0.5); font-size: .8rem; }
+.contact-list em { color: rgba(255,255,255,0.88); font-size: .8rem; }
 .contact-list svg { margin-top: 2px; flex-shrink: 0; }
 
 /* ===== LOCATION ===== */
@@ -762,6 +769,7 @@ p { line-height: 1.7; }
 }
 .faq-question:hover { background: var(--gray-100); }
 .faq-question::-webkit-details-marker { display: none; }
+.faq-question:focus-visible { outline: 3px solid var(--red); outline-offset: -3px; border-radius: var(--radius); }
 .faq-item[open] .faq-question { color: var(--red); }
 .chevron {
   flex-shrink: 0;
@@ -819,7 +827,7 @@ p { line-height: 1.7; }
   font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.6);
   margin-bottom: .85rem;
 }
 .footer-links ul {
