@@ -18,3 +18,5 @@ doacoes.json
 .idea/
 .DS_Store
 Thumbs.db
+# Credenciais / variáveis de ambiente
+.env
