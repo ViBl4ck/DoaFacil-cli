@@ -1,6 +1,6 @@
 # DoaFácil - Rastreador de Doações de Sangue 🩸
 
-**Versão:** 1.1.0
+**Versão:** 2.0.0
 
 ## Link público / Execução
 
@@ -14,7 +14,7 @@
 Muitas pessoas desejam doar sangue regularmente para ajudar a salvar vidas, mas acabam esquecendo a data exata em que estão aptas a doar novamente devido aos diferentes prazos de carência biológica (60 dias para homens e 90 dias para mulheres).
 
 ## A Solução
-O DoaFácil é uma aplicação de Linha de Comando (CLI) que registra a última data de doação do usuário, calcula automaticamente a data da próxima doação e oferece uma pré-triagem baseada nas regras dos hemocentros. Os registros são salvos localmente em um arquivo JSON (`doacoes.json`).
+O DoaFácil é uma aplicação de Linha de Comando (CLI) que registra a última data de doação do usuário, calcula automaticamente a data da próxima doação e oferece uma pré-triagem baseada nas regras dos hemocentros. Os registros são salvos em banco de dados PostgreSQL via Supabase.
 
 ## Funcionalidades
 * **Registrar doação:** cadastra nome, sexo biológico e data da última doação.
@@ -25,10 +25,24 @@ O DoaFácil é uma aplicação de Linha de Comando (CLI) que registra a última 
 
 ## Tecnologias e Qualidade
 * **Linguagem:** Python 3
-* **Armazenamento:** arquivo JSON local (`doacoes.json`)
+* **Banco de dados:** PostgreSQL (Supabase)
 * **Testes:** `pytest`
 * **Linting / Análise estática:** `flake8`
 * **CI:** GitHub Actions executa linting e testes a cada push e pull request
+
+## Configuração do banco de dados
+
+O DoaFácil usa o [Supabase](https://supabase.com) como banco de dados (PostgreSQL).
+Para executar localmente, crie um arquivo `.env` na raiz do projeto com as
+credenciais do seu projeto Supabase:
+
+```
+SUPABASE_URL=https://<seu-projeto>.supabase.co
+SUPABASE_KEY=<sua-chave-anon>
+```
+
+O arquivo `.env` **não vai para o repositório** (está no `.gitignore`).
+Nunca exponha suas credenciais publicamente.
 
 ## 🚀 Como executar localmente
 

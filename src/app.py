@@ -1,23 +1,12 @@
-import json
-import os
 import re
 from datetime import datetime, timedelta
 
 import requests
 
-DATA_FILE = "doacoes.json"
-
-
-def carregar_dados():
-    if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r", encoding="utf-8") as file:
-            return json.load(file)
-    return {}
-
-
-def salvar_dados(dados):
-    with open(DATA_FILE, "w", encoding="utf-8") as file:
-        json.dump(dados, file, indent=4)
+try:
+    from database import registrar_doacao, buscar_doacao
+except ImportError:
+    from src.database import registrar_doacao, buscar_doacao
 
 
 def calcular_proxima_doacao(data_ultima, sexo):
@@ -109,11 +98,9 @@ def consultar_cep(cep):
 
 
 def main():
-    dados = carregar_dados()
-
     while True:
         print("\n" + "-" * 50)
-        print("🩸 Bem-vindo ao DoaFácil v1.1.0 🩸")
+        print("🩸 Bem-vindo ao DoaFácil v2.0.0 🩸")
         print("-" * 50)
         print("1. Registrar nova doação")
         print("2. Verificar próxima data disponível")
@@ -133,25 +120,33 @@ def main():
 
             perg_data = "Data da doação (Ex: 15/04/2026)? "
             data_str = input(perg_data).strip()
-
             try:
                 datetime.strptime(data_str, "%d/%m/%Y")
-                dados[nome] = {"sexo": sexo, "ultima_doacao": data_str}
-                salvar_dados(dados)
-                print(f"✅ Sucesso! Doação de {nome} registrada.")
             except ValueError:
                 print("❌ Formato de data inválido. Use DD/MM/AAAA.")
+            else:
+                try:
+                    registrar_doacao(nome, sexo, data_str)
+                    print(f"✅ Sucesso! Doação de {nome} registrada.")
+                except Exception:
+                    print("❌ Erro ao salvar no banco de dados.")
 
         elif opcao == '2':
             nome = input("Qual o seu nome para consulta? ").strip()
-            if nome in dados:
-                info = dados[nome]
+            try:
+                info = buscar_doacao(nome)
+            except Exception:
+                print("❌ Erro ao consultar o banco de dados.")
+                info = None
+            if info:
                 ultima = info["ultima_doacao"]
-                proxima = calcular_proxima_doacao(ultima, info["sexo"])
+                proxima = calcular_proxima_doacao(
+                    ultima, info["sexo"]
+                )
                 print(f"\n📅 Olá {nome}, última doação: {ultima}.")
-                print(f"🟢 Próxima doação a partir de: {proxima}")
+                print(f"➡️  Próxima doação a partir de: {proxima}")
             else:
-                print("❌ Usuário não encontrado no sistema.")
+                print("❌ Nome não encontrado no sistema.")
 
         elif opcao == '3':
             aprovado, mensagem = fazer_triagem()
